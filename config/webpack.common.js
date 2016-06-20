@@ -14,14 +14,15 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ForkCheckerPlugin = require('awesome-typescript-loader').ForkCheckerPlugin;
 const HtmlElementsPlugin = require('./html-elements-plugin');
 const AssetsPlugin = require('assets-webpack-plugin');
-const ContextReplacementPlugin = require('webpack/lib/ContextReplacementPlugin'); 
+const ContextReplacementPlugin = require('webpack/lib/ContextReplacementPlugin');
+const ProvidePlugin = require('webpack/lib/ProvidePlugin');
 
 /*
  * Webpack Constants
  */
 const HMR = helpers.hasProcessFlag('hot');
 const METADATA = {
-  title: 'Angular2 Webpack Starter by @gdi2290 from @AngularClass',
+  title: 'Angular2-starter',
   baseUrl: '/',
   isDevServer: helpers.isWebpackDevServer()
 };
@@ -137,6 +138,11 @@ module.exports = function(options) {
           exclude: [/\.(spec|e2e)\.ts$/]
         },
 
+        {
+          test: /\.(png|woff|woff2|eot|ttf|svg|jpg)(\?.*)?$/,
+          loader: 'file'
+        },
+
         /*
          * Json loader support for *.json files.
          *
@@ -155,6 +161,21 @@ module.exports = function(options) {
         {
           test: /\.css$/,
           loaders: ['to-string-loader', 'css-loader']
+        },
+
+        /* SASS loader
+         * {
+         *   test: /^(?!.*component).*\.scss$/,
+         *   exclude: /node_modules/,
+         *   loader: ExtractTextPlugin.extract('style', 'css?sourceMap!resolve-url!sass?sourceMap')
+         *   // loaders: ['style', 'css?sourceMap!resolve-url!sass?sourceMap']
+         * },
+         */
+
+        {
+          test: /\.component\.scss$/,
+          exclude: /node_modules/,
+          loaders: ['raw', 'resolve-url', 'sass?sourceMap']
         },
 
         /* Raw loader support for *.html
@@ -223,7 +244,7 @@ module.exports = function(options) {
       /**
        * Plugin: ContextReplacementPlugin
        * Description: Provides context to Angular's use of System.import
-       * 
+       *
        * See: https://webpack.github.io/docs/list-of-plugins.html#contextreplacementplugin
        * See: https://github.com/angular/angular/issues/11580
        */
@@ -250,10 +271,10 @@ module.exports = function(options) {
           'robots.txt'
         ]
       }),
-      new CopyWebpackPlugin([{ 
+      new CopyWebpackPlugin([{
         from: 'src/assets/robots.txt'
-      }, { 
-        from: 'src/assets/humans.txt' 
+      }, {
+        from: 'src/assets/humans.txt'
       }]),
 
       /*
@@ -267,6 +288,13 @@ module.exports = function(options) {
       new HtmlWebpackPlugin({
         template: 'src/index.html',
         chunksSortMode: 'dependency'
+      }),
+
+      // require the plugin
+      new ProvidePlugin({
+        jQuery: 'jquery',
+        $: 'jquery',
+        jquery: 'jquery'
       }),
 
       /*

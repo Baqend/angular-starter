@@ -18,11 +18,15 @@ import { Home } from './home';
 import { About } from './about';
 import { NoContent } from './no-content';
 import { XLarge } from './home/x-large';
+import { Signup } from "./signup/signup.component";
+import {Me} from "./me/me.component";
+import {DB_PROVIDERS} from "./db.service";
 
 // Application wide providers
 const APP_PROVIDERS = [
   ...APP_RESOLVER_PROVIDERS,
-  AppState
+  AppState,
+  ...DB_PROVIDERS
 ];
 
 type StoreType = {
@@ -40,7 +44,9 @@ type StoreType = {
     App,
     About,
     Home,
+    Me,
     NoContent,
+    Signup,
     XLarge
   ],
   imports: [ // import Angular's modules

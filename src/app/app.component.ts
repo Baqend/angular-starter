@@ -13,10 +13,10 @@ import { AppState } from './app.service';
   selector: 'app',
   encapsulation: ViewEncapsulation.None,
   styleUrls: [
-    './app.component.css'
+    './app.component.scss'
   ],
   template: `
-    <nav>
+    <nav class="container">
       <span>
         <a [routerLink]=" ['./'] ">
           Index
@@ -36,32 +36,42 @@ import { AppState } from './app.service';
       </span>
       |
       <span>
+        <a [routerLink]=" ['./signup'] ">
+          Signup
+        </a>
+      </span>
+      |
+      <span>
         <a [routerLink]=" ['./about'] ">
           About
         </a>
       </span>
     </nav>
 
-    <main>
+    <main class="container">
       <router-outlet></router-outlet>
     </main>
 
-    <pre class="app-state">this.appState.state = {{ appState.state | json }}</pre>
+    <div class="container">
+      <pre class="app-state">this.appState.state = {{ appState.state | json }}</pre>
+    </div>
 
-    <footer>
+    <footer class="container">
       <span>WebPack Angular 2 Starter by <a [href]="url">@AngularClass</a></span>
+      <span>Angular 2 + Baqend by <a [href]="baqend">@Baqendcom</a></span>
       <div>
-        <a [href]="url">
-          <img [src]="angularclassLogo" width="25%">
+        <a [href]="baqend">
+          <img [src]="angularbaqendLogo" style="max-width: 400px; margin: auto; display: block">
         </a>
       </div>
     </footer>
   `
 })
 export class App {
-  angularclassLogo = 'assets/img/angularclass-avatar.png';
+  angularbaqendLogo = 'assets/Angular+Baqend.svg';
   name = 'Angular 2 Webpack Starter';
   url = 'https://twitter.com/AngularClass';
+  baqend = 'http://www.baqend.com';
 
   constructor(
     public appState: AppState) {
