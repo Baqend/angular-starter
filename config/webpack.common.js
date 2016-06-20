@@ -25,7 +25,7 @@ const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
  */
 const HMR = helpers.hasProcessFlag('hot');
 const METADATA = {
-  title: 'Angular2 Webpack Starter by @gdi2290 from @AngularClass',
+  title: 'Angular2-starter',
   baseUrl: '/',
   isDevServer: helpers.isWebpackDevServer()
 };
@@ -108,6 +108,11 @@ module.exports = function (options) {
           exclude: [/\.(spec|e2e)\.ts$/]
         },
 
+        {
+          test: /\.(png|woff|woff2|eot|ttf|svg|jpg)(\?.*)?$/,
+          loader: 'file'
+        },
+
         /*
          * Json loader support for *.json files.
          *
@@ -126,6 +131,21 @@ module.exports = function (options) {
         {
           test: /\.css$/,
           use: ['to-string-loader', 'css-loader']
+        },
+
+        /* SASS loader
+         * {
+         *   test: /^(?!.*component).*\.scss$/,
+         *   exclude: /node_modules/,
+         *   loader: ExtractTextPlugin.extract('style', 'css?sourceMap!resolve-url!sass?sourceMap')
+         *   // loaders: ['style', 'css?sourceMap!resolve-url!sass?sourceMap']
+         * },
+         */
+
+        {
+          test: /\.component\.scss$/,
+          exclude: /node_modules/,
+          loaders: ['raw', 'resolve-url', 'sass?sourceMap']
         },
 
         /* Raw loader support for *.html
@@ -225,6 +245,13 @@ module.exports = function (options) {
         chunksSortMode: 'dependency',
         metadata: METADATA,
         inject: 'head'
+      }),
+
+      // require the plugin
+      new ProvidePlugin({
+        jQuery: 'jquery',
+        $: 'jquery',
+        jquery: 'jquery'
       }),
 
       /*
