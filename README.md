@@ -24,7 +24,7 @@ Your app is currently connected to a Baqend test instance called 'app-starter', 
 
 To develop your own application 
 
-1. Launch a free Baqend instance at [baqend.com](http://dashboard.baqend.com/regirster)
+1. Launch a free Baqend instance at [baqend.com](http://dashboard.baqend.com/register)
 2. Change the app name in your projects `src/app/db.service.ts` from `app-starter` to your app name
 3. Your Angular2 app will automatically connect to your app instance
 4. To start accessing data or backend features, simply import the `db`-object with `import {db} from "baqend";` 
