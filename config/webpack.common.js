@@ -19,6 +19,7 @@ const HtmlElementsPlugin = require('./html-elements-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const LoaderOptionsPlugin = require('webpack/lib/LoaderOptionsPlugin');
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
+const ProvidePlugin = require('webpack/lib/ProvidePlugin');
 
 /*
  * Webpack Constants
@@ -108,11 +109,6 @@ module.exports = function (options) {
           exclude: [/\.(spec|e2e)\.ts$/]
         },
 
-        {
-          test: /\.(png|woff|woff2|eot|ttf|svg|jpg)(\?.*)?$/,
-          loader: 'file'
-        },
-
         /*
          * Json loader support for *.json files.
          *
@@ -145,7 +141,7 @@ module.exports = function (options) {
         {
           test: /\.component\.scss$/,
           exclude: /node_modules/,
-          loaders: ['raw', 'resolve-url', 'sass?sourceMap']
+          loaders: ['raw-loader', 'sass-loader']
         },
 
         /* Raw loader support for *.html
@@ -163,6 +159,11 @@ module.exports = function (options) {
          */
         {
           test: /\.(jpg|png|gif)$/,
+          use: 'file-loader'
+        },
+
+        {
+          test: /\.(png|woff|woff2|eot|ttf|svg|jpg)(\?.*)?$/,
           use: 'file-loader'
         },
 

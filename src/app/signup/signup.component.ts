@@ -8,7 +8,7 @@ import {db} from "baqend";
   styleUrls: ['./signup.component.scss'],
 })
 
-export class Signup {
+export class SignupComponent {
 
   user = {
     name: '',

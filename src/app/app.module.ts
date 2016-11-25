@@ -18,8 +18,8 @@ import { HomeComponent } from './home';
 import { AboutComponent } from './about';
 import { NoContentComponent } from './no-content';
 import { XLarge } from './home/x-large';
-import { Signup } from "./signup/signup.component";
-import {Me} from "./me/me.component";
+import { SignupComponent } from "./signup/signup.component";
+import {MeComponent} from "./me/me.component";
 import {DB_PROVIDERS} from "./db.service";
 
 // Application wide providers
@@ -45,8 +45,8 @@ type StoreType = {
     AboutComponent,
     HomeComponent,
     NoContentComponent,
-    Signup,
-    Me,
+    SignupComponent,
+    MeComponent,
     XLarge
   ],
   imports: [ // import Angular's modules

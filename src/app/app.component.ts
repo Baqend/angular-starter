@@ -68,10 +68,10 @@ import { AppState } from './app.service';
   `
 })
 export class AppComponent {
-  angularclassLogo = 'assets/Angular+Baqend.svg';
+  angularbaqendLogo = 'assets/Angular+Baqend.svg';
   name = 'Angular 2 Webpack Starter';
   url = 'https://twitter.com/AngularClass';
-  baqend = 'http://www.baqend.com';
+  baqend = 'https://www.baqend.com';
 
   constructor(
     public appState: AppState) {

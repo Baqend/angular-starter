@@ -7,7 +7,7 @@ import {Router} from "@angular/router";
   templateUrl: './me.component.html'
 })
 
-export class Me implements OnInit {
+export class MeComponent implements OnInit {
 
   me:model.User;
 
