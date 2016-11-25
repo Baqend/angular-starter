@@ -17,7 +17,7 @@ The starter is based on the [Angular2 Webpack Starter](https://github.com/Angula
 1. Make sure you have [Node.js](https://nodejs.org/en/) installed on your machine
 2. Clone the repository with `git clone https://github.com/Baqend/angular2-starter.git`
 3. Install the project with `npm install`
-4. Start the server with `npm server` (or `npm server:hmr` for *hot module replacement* - only changed files are recompiled)
+4. Start the server with `npm start` (or `npm run server:dev:hmr` for *hot module replacement* - only changed files are recompiled)
 5. Open the url in your browser [http://localhost:3000](http://localhost:3000), you should see a small sample application with signup capability
 
 Your app is currently connected to a Baqend test instance called 'app-starter', which provides common backend features like data and file storage, user authentication (used in the example), queries and push notifications among others.
