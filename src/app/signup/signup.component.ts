@@ -1,6 +1,6 @@
-import {Component, OnInit} from '@angular/core';
-import {Router} from "@angular/router";
-import {db} from "baqend";
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { db } from 'baqend';
 
 @Component({
   selector: 'signup',
