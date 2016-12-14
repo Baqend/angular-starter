@@ -7,7 +7,6 @@ import { DBReady } from '../db.service';
 import { ChatsListComponent } from './chats-list.component';
 import { ChatsDetailsComponent } from './chats-details.component';
 
-console.log('`Detail` bundle loaded asynchronously');
 // async components must be named routes for WebpackAsyncRoute
 export const routes = [
   { path: '', component: ChatsComponent, pathMatch: 'full', resolve: { db: DBReady } },

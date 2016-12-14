@@ -3,7 +3,7 @@ import { db, model } from 'baqend';
 import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
-  selector: 'chats-list',
+  selector: 'chats-details',
   template: `
     <div class="row">
       <div class="col-xs-10 col-xs-offset-1" *ngIf="message">
