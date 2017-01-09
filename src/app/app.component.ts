@@ -1,8 +1,11 @@
 /*
  * Angular 2 decorators and services
  */
-import { Component, ViewEncapsulation } from '@angular/core';
-
+import {
+  Component,
+  OnInit,
+  ViewEncapsulation
+} from '@angular/core';
 import { AppState } from './app.service';
 
 /*
@@ -16,42 +19,28 @@ import { AppState } from './app.service';
     './app.component.scss'
   ],
   template: `
-    <nav class="container">
-      <span>
-        <a [routerLink]=" ['./'] ">
-          Index
-        </a>
-      </span>
-      |
-      <span>
-        <a [routerLink]=" ['./home'] ">
-          Home
-        </a>
-      </span>
-      |
-      <span>
-        <a [routerLink]=" ['./detail'] ">
-          Detail
-        </a>
-      </span>
-      |
-      <span>
-        <a [routerLink]=" ['./signup'] ">
-          Signup
-        </a>
-      </span>
-      |
-      <span>
-        <a [routerLink]=" ['./about'] ">
-          About
-        </a>
-      </span>
-            |
-      <span>
-        <a [routerLink]=" ['./chats'] ">
-          Chats
-        </a>
-      </span>
+    <nav>
+      <a [routerLink]=" ['./'] " routerLinkActive="active">
+        Index
+      </a>
+      <a [routerLink]=" ['./home'] " routerLinkActive="active">
+        Home
+      </a>
+      <a [routerLink]=" ['./detail'] " routerLinkActive="active">
+        Detail
+      </a>
+      <a [routerLink]=" ['./barrel'] " routerLinkActive="active">
+        Barrel
+      </a>
+      <a [routerLink]=" ['./signup'] " routerLinkActive="active">
+        Signup
+      </a>
+      <a [routerLink]=" ['./chats'] " routerLinkActive="active">
+        Chats
+      </a>
+      <a [routerLink]=" ['./about'] " routerLinkActive="active">
+        About
+      </a>
     </nav>
 
     <main class="container">
@@ -74,17 +63,16 @@ import { AppState } from './app.service';
   `
 })
 export class AppComponent {
-  angularbaqendLogo = 'assets/Angular+Baqend.svg';
-  name = 'Angular 2 Webpack Starter';
-  url = 'https://twitter.com/AngularClass';
-  baqend = 'https://www.baqend.com';
+  public angularbaqendLogo = 'assets/Angular+Baqend.svg';
+  public name = 'Angular 2 Webpack Starter';
+  public url = 'https://twitter.com/AngularClass';
+  public baqend = 'https://www.baqend.com';
 
   constructor(
-    public appState: AppState) {
+    public appState: AppState
+  ) {}
 
-  }
-
-  ngOnInit() {
+  public ngOnInit() {
     console.log('Initial App State', this.appState.state);
   }
 

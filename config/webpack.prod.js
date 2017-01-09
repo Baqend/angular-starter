@@ -9,8 +9,8 @@ const commonConfig = require('./webpack.common.js'); // the settings that are co
 /**
  * Webpack Plugins
  */
-const DedupePlugin = require('webpack/lib/optimize/DedupePlugin');
 const DefinePlugin = require('webpack/lib/DefinePlugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const IgnorePlugin = require('webpack/lib/IgnorePlugin');
 const LoaderOptionsPlugin = require('webpack/lib/LoaderOptionsPlugin');
 const NormalModuleReplacementPlugin = require('webpack/lib/NormalModuleReplacementPlugin');
@@ -82,6 +82,38 @@ module.exports = function (env) {
 
     },
 
+    module: {
+
+      rules: [
+
+        /*
+         * Extract CSS files from .src/styles directory to external CSS file
+         */
+        {
+          test: /\.css$/,
+          loader: ExtractTextPlugin.extract({
+              fallbackLoader: 'style-loader',
+              loader: 'css-loader'
+            }),
+          include: [helpers.root('src', 'styles')]
+        },
+
+        /*
+         * Extract and compile SCSS files from .src/styles directory to external CSS file
+         */
+        {
+          test: /\.scss$/,
+          loader: ExtractTextPlugin.extract({
+              fallbackLoader: 'style-loader',
+              loader: 'css-loader!sass-loader'
+            }),
+          include: [helpers.root('src', 'styles')]
+        },
+
+      ]
+
+    },
+
     /**
      * Add additional plugins to the compiler.
      *
@@ -90,22 +122,20 @@ module.exports = function (env) {
     plugins: [
 
       /**
+       * Plugin: ExtractTextPlugin
+       * Description: Extracts imported CSS files into external stylesheet 
+       *
+       * See: https://github.com/webpack/extract-text-webpack-plugin
+       */
+      new ExtractTextPlugin('[name].[contenthash].css'),
+
+      /**
        * Plugin: WebpackMd5Hash
        * Description: Plugin to replace a standard webpack chunkhash with md5.
        *
        * See: https://www.npmjs.com/package/webpack-md5-hash
        */
       new WebpackMd5Hash(),
-
-      /**
-       * Plugin: DedupePlugin
-       * Description: Prevents the inclusion of duplicate code into your bundle
-       * and instead applies a copy of the function at runtime.
-       *
-       * See: https://webpack.github.io/docs/list-of-plugins.html#defineplugin
-       * See: https://github.com/webpack/docs/wiki/optimization#deduplication
-       */
-      // new DedupePlugin(), // see: https://github.com/angular/angular-cli/issues/1587
 
       /**
        * Plugin: DefinePlugin
@@ -264,6 +294,16 @@ module.exports = function (env) {
 
         }
       }),
+
+      /**
+       * Plugin: BundleAnalyzerPlugin
+       * Description: Webpack plugin and CLI utility that represents
+       * bundle content as convenient interactive zoomable treemap
+       *
+       * `npm run build:prod -- --env.analyze` to use
+       *
+       * See: https://github.com/th0r/webpack-bundle-analyzer
+       */
 
     ],
 
