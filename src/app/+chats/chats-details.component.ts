@@ -34,7 +34,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 })
 export class ChatsDetailsComponent {
 
-  private message: model.Message;
+  public message: model.Message;
 
   constructor(private route: ActivatedRoute) {}
 

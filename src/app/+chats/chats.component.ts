@@ -34,7 +34,7 @@ import { db, model } from 'baqend';
 })
 export class ChatsComponent {
 
-  private messages: Array<model.Message>;
+  public messages: Array<model.Message>;
 
   constructor() {}
 
