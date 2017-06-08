@@ -1,7 +1,7 @@
 !["Logo"](https://cdn.rawgit.com/Baqend/angular-starter/master/src/assets/Angular+Baqend.svg)
 
 
-#Angular and Baqend Starter
+# Angular and Baqend Starter
 With this Angular and Baqend starter kit you can build **blazingly fast single page applications** in no time. Setup your project by following the simple steps below.
 
 The starter is based on the [official Angular CLI](https://github.com/angular/angular-cli) and uses:
