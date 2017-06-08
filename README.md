@@ -77,6 +77,6 @@ Baqend's feature set includes:
 * File Storage and Hosting
 * Access Control on Object and Schema Level
 
-#License
+# License
 
 [MIT](https://github.com/Baqend/angular-starter/blob/master/LICENSE) 
