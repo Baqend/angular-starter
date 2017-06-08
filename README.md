@@ -7,7 +7,7 @@ With this Angular and Baqend starter kit you can build **blazingly fast single p
 The starter is based on the [official Angular CLI](https://github.com/angular/angular-cli) and uses:
 
 * [**SASS**](http://sass-lang.com) as a CSS precompiler with cool features and syntax
-* [**TypeScript**](https://www.typescriptlang.org) for typed JavaScript, ES6 features and because it is recommended for Angular2
+* [**TypeScript**](https://www.typescriptlang.org) for typed JavaScript, ES6 features and because it is recommended for Angular
 * [**Bootstrap**](http://getbootstrap.com) for easy modern styling
 * [**Baqend**](http://www.baqend.com) as a fully managed backend service for backend-less development
 
@@ -26,7 +26,7 @@ To develop your own application
 
 1. Launch a free Baqend instance at [baqend.com](http://dashboard.baqend.com/register)
 2. Change the app name in your projects `src/app/db.service.ts` from `app-starter` to your app name
-3. Your Angular2 app will automatically connect to your app instance
+3. Your Angular app will automatically connect to your app instance
 4. To start accessing data or backend features, simply import the `db`-object with `import {db} from "baqend";` 
 and see our [Guide](http://www.baqend.com/guide/#accessing-data) and [API Docs](http://www.baqend.com/js-sdk/latest/baqend.html) for details
 
