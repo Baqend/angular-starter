@@ -1,17 +1,17 @@
-import {Component, OnInit} from '@angular/core';
-import {model, db} from 'baqend';
-import {Router} from "@angular/router";
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { model, db } from 'baqend';
 
 @Component({
-  selector: 'me',
-  templateUrl: './me.component.html'
+  selector: 'app-me',
+  templateUrl: './me.component.html',
+  styleUrls: ['./me.component.scss']
 })
-
 export class MeComponent implements OnInit {
 
-  me:model.User;
+  me: model.User;
 
-  constructor(private router:Router) {}
+  constructor(private router: Router) {}
 
   ngOnInit() {
     this.me = db.User.me;

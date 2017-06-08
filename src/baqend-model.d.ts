@@ -1,6 +1,6 @@
-import {binding, GeoPoint} from "baqend";
+import {binding, GeoPoint} from 'baqend';
 
-declare module "baqend" {
+declare module 'baqend' {
 
   interface baqend {
     Message: binding.EntityFactory<model.Message>;

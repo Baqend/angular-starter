@@ -3,6 +3,16 @@ html, body{
   font-family: Arial, Helvetica, sans-serif
 }
 
-a.active {
-  background-color: gray;
+.nav {
+  margin: 30px auto;
+  width: 204px;
+  > li {
+    a {
+      &.active {
+        background-color: #337ab7;
+        color: #ffffff;
+      }
+      background-color: #f5f5f5;
+    }
+  }
 }
