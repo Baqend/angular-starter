@@ -8,8 +8,6 @@ import { Component } from '@angular/core';
 export class AppComponent {
 
   public angularbaqendLogo = 'assets/Angular+Baqend.svg';
-  public name = 'Angular 2 Webpack Starter';
   public baqend = 'https://www.baqend.com';
 
-  title = 'app';
 }
