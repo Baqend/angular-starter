@@ -18,7 +18,7 @@ The starter is based on the [official Angular CLI](https://github.com/angular/an
 3. Install the project with `npm install`
 4. Start the server with `npm start`
 5. Open the url in your browser [http://localhost:4200](http://localhost:4200), you should see a small sample application with signup capability
-6. You can build a [AOT](https://angular.io/docs/ts/latest/cookbook/aot-compiler.html) production version with `npm run build -- -prod -aot`
+6. You can build a [AOT](https://angular.io/docs/ts/latest/cookbook/aot-compiler.html) production version with `npm run build -- --prod`
 
 Your app is currently connected to a Baqend test instance called 'app-starter', which provides common backend features like data and file storage, user authentication (used in the example), queries and push notifications among others.
 
